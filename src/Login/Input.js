@@ -2,45 +2,57 @@ import React from 'react'
 import styled from 'styled-components';
 
 const InputContainer = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 0.7rem;
+  &:focus-within {
+    transform: scale(1.05, 1.05);
+  }
 `;
 
 const CustomLabel = styled.label`
-  margin: 0.3rem;
+  margin: 0 0 0.5rem 0;
   font-family: 'Teko';
   font-size: 2rem;
-  color: aliceblue;
+  display: block;
+  color: #aaa;
+  opacity: 1;
+  transform: translateY(-1.25em);
+  transform-origin: 0 0;
+  transition: all .3s;
 `;
 
 const CustomInput = styled.input`
   display: block;
   margin: 0;
-  border: 2px solid #ccc;
   width: 20rem;
   height: 2rem;
-  border-radius: 5px;
   outline: none;
-  background: #E7F6F2;
   transition: .1s;
+  background: none;
+  border-style: none none solid none;
   &:hover, &:focus {
+    box-shadow: none;
     outline: none;
-    border-color: #A5C9CA;
-    box-shadow: 0 0 0 3px #395B64;
+    border-color: #92B4EC;
+  }
+  &::placeholder {
+    color: transparent;
   }
 `;
 
 
 const Input = ({ type, label, name, id, value, setValue }) => {
   return (
-    <InputContainer>
-      <CustomLabel htmlFor={id}>{label}</CustomLabel>
+    <InputContainer className="form">
       <CustomInput 
+        className='input'
         type={type}
         id={id} 
         name={name} 
         value={value} 
         onChange={({target}) => setValue(target.value)} 
+        placeholder="Username"
       />
+      <CustomLabel htmlFor={id} className="label">{label}</CustomLabel>
     </InputContainer>
   )
 }

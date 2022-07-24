@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 const CustomButton = styled.button`
-  background: #5B4B8A;
+  background: #92B4EC;
   border: none;
   border-radius: 3px;
   font-family: 'IBM Plex Sans';
@@ -13,8 +13,8 @@ const CustomButton = styled.button`
   padding: 3px 10px;
   transition: .1s;
   &:hover, &:focus {
-    background: #4C3575;
     outline: none;
+    box-shadow: 0 0 0 2px #CDDEFF;
   }
 `;
 
